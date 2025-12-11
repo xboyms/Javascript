@@ -1,7 +1,6 @@
 /*affects the whole page*/
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 /*affect all the elements*/
@@ -15,7 +14,7 @@ body {
     font-family: "Helvetica Neue", sans-serif;
 }
 
-p, ul, a {
+p, ul, a, label, input, textarea {
     color: dimgray;
     font-size: large;
     line-height: 1.3em;
@@ -97,13 +96,8 @@ main {
     width: 80%;
     margin: 2em auto;
     border-radius: 2em;
-    flex-wrap: wrap;
-    padding: 2em;
     background-color: whitesmoke;
-}
-
-.narrow-container-2 {
-    margin: 2em auto;
+    padding: 2em;
 }
 
 .wide-container, .wide-container2 {
@@ -223,7 +217,7 @@ footer p {
 }
 
 footer div {
-    margin: 0 2em;
+    margin: 0 3em;
 }
 
 .get-in-touch {
@@ -265,36 +259,32 @@ footer img {
 }
 
 .contact-form {
-    width: 80%;
+    width: 60%;
     padding: 2em;
-    margin: auto;
+    margin: 2em auto;
     background-color: whitesmoke;
     border-radius: 2em;
 }
 
-
 form {
-    display: block;
-    width: 50%;
-    margin: auto;
-    padding: 1em 2em;
-}
-
-label{
-
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin: 2em auto 0;
+    padding: 1em 0;
 }
 
 input[type=text], textarea {
     width: 90%;
-    margin: 1em auto;
-    padding: 0.7em;
+    margin: 1em 0;
+    padding: 14px;
     resize: none;
     border-radius: 1em;
     border: 1px solid lightgrey;
 }
 
 textarea {
-    height: 50px;
+    height: 70px;
     font-family: "Helvetica Neue", sans-serif;
 }
 
@@ -302,12 +292,20 @@ textarea {
 input[type=submit] {
     width: 40%;
     display: block;
-    margin: auto;
-    padding: 0.7em;
+    margin: 2em auto 0;
+    padding: 0.5em 0;
     text-align: center;
     transition: ease-out 0.2s;
     border: solid 1px dimgray;
     border-radius: 1em;
+}
+
+input, textarea {
+    color: black;
+}
+
+input::placeholder {
+    color: gray;
 }
 
 input[type=submit]:hover {
@@ -323,7 +321,7 @@ input[type=submit]:hover {
         width: 90%;
     }
 
-    .text-container, .project-text-container {
+    .text-container, .text-container2, .project-text-container {
         width: 90%;
     }
 
@@ -340,15 +338,15 @@ input[type=submit]:hover {
     }
 
     input[type=submit]:hover {
+        background-color: revert;
     }
 
+    .narrow-container {
+        padding: 1em;
+    }
 }
 
-@media (max-width: 435px) {
-
-    main {
-        margin-top: 0;
-    }
+@media (max-width: 480px) {
 
     nav {
         position: static;
@@ -367,12 +365,45 @@ input[type=submit]:hover {
         white-space: wrap;
     }
 
+    main {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 435px) {
+
+
+    nav {
+        position: static;
+        padding: 1em;
+        width: auto;
+    }
+
     footer {
         justify-content: center;
     }
 
     footer p {
         display: none;
+    }
+
+    .contact-form {
+        width: 100%;
+        padding: 1em 0;
+    }
+
+    .contact-form h1 {
+        display: block;
+        padding: 0.5em;
+    }
+
+    input[type=submit] {
+        width: 100%;
+    }
+
+    form {
+        width: 80%;
+        padding: 1em 0;
     }
 
 }
