@@ -38,8 +38,17 @@
             <h1>Contact Form 💬</h1>
             <form action="#">
                 <label>Name</label>
-                <input type="text" name="firstname" placeholder="Name" maxlength="50" required>
+                <div class="name">
+                    <input type="text" name="firstname" placeholder="First name" maxlength="50" required>
+                    <input type="text" name="firstname" placeholder="Last name" maxlength="50" required>
+                </div>
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Email" required>
+                <label>Phone number</label>
+                <input type="text" name="phone" required>
                 <label for="subject">Subject</label>
+                <input type="" name="subject" placeholder="Subject" required>
+                <label>Message</label>
                 <textarea id="subject" name="subject" placeholder="Write a message" maxlength=100 required></textarea>
                 <input type="submit" value="Submit">
             </form>

@@ -274,17 +274,23 @@ form {
     padding: 1em 0;
 }
 
-input[type=text], textarea {
-    width: 90%;
-    margin: 1em 0;
+input, textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0.5em 0 1em;
     padding: 14px;
     resize: none;
     border-radius: 1em;
     border: 1px solid lightgrey;
 }
 
+/*input[type="email"] {*/
+/*    margin-bottom: 2em;*/
+/*}*/
+
 textarea {
-    height: 70px;
+    height: 100px;
     font-family: "Helvetica Neue", sans-serif;
 }
 
@@ -296,7 +302,7 @@ input[type=submit] {
     padding: 0.5em 0;
     text-align: center;
     transition: ease-out 0.2s;
-    border: solid 1px dimgray;
+    border: solid 1px lightgrey;
     border-radius: 1em;
 }
 
@@ -305,12 +311,22 @@ input, textarea {
 }
 
 input::placeholder {
-    color: gray;
+    color: lightgrey;
+}
+
+textarea::placeholder {
+    color: lightgrey;
 }
 
 input[type=submit]:hover {
     cursor: pointer;
     background-color: lightgrey;
+}
+
+.name {
+    display: flex;
+    gap: 1em;
+    justify-content: start;
 }
 
 /*Change behavior and layout based on display width*/
@@ -371,7 +387,6 @@ input[type=submit]:hover {
 }
 
 @media (max-width: 435px) {
-
 
     nav {
         position: static;
