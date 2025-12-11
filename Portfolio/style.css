@@ -55,14 +55,14 @@ nav a {
     display: block;
     padding: 10px;
     text-decoration: none;
-    border: dashed 1px transparent;
+    border: dashed 2px transparent;
     border-radius: calc(var(--radius) - var(--gap));
     white-space: nowrap;
     transition: 0.2s;
 }
 
 nav a:hover {
-    border: dashed 1px lightgrey;
+    border: dashed 2px white;
 }
 
 nav a.active {
@@ -118,7 +118,7 @@ main {
 
 .wide-container2 {
     width: 80%;
-    padding: 2em    ;
+    padding: 2em;
 }
 
 .text-container, .text-container2 {
@@ -264,36 +264,46 @@ footer img {
     transform: scale(1.1);
 }
 
-/*ID*/
-#nasdaq {
-    width: 95%;
-}
-
 .contact-form {
     width: 80%;
-    padding: 1em;
+    padding: 2em;
     margin: auto;
+    background-color: whitesmoke;
+    border-radius: 2em;
 }
 
+
 form {
+    display: block;
     width: 50%;
     margin: auto;
-    padding: 1em;
+    padding: 1em 2em;
+}
+
+label{
+
 }
 
 input[type=text], textarea {
-    width: 100%;
+    width: 90%;
     margin: 1em auto;
     padding: 0.7em;
-    resize: vertical;
+    resize: none;
     border-radius: 1em;
     border: 1px solid lightgrey;
 }
 
+textarea {
+    height: 50px;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
 /*Choose what type of input to style*/
 input[type=submit] {
-    width: 30%;
-    padding: 0.5em;
+    width: 40%;
+    display: block;
+    margin: auto;
+    padding: 0.7em;
     text-align: center;
     transition: ease-out 0.2s;
     border: solid 1px dimgray;
@@ -302,7 +312,7 @@ input[type=submit] {
 
 input[type=submit]:hover {
     cursor: pointer;
-    background-color: grey;
+    background-color: lightgrey;
 }
 
 /*Change behavior and layout based on display width*/
@@ -327,6 +337,9 @@ input[type=submit]:hover {
 
     footer img:hover {
         transform: none;
+    }
+
+    input[type=submit]:hover {
     }
 
 }
