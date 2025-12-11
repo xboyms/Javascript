@@ -1,0 +1,367 @@
+/*affects the whole page*/
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/*affect all the elements*/
+
+* {
+    text-align: justify;
+}
+
+body {
+    margin: auto 1em;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+p, ul, a {
+    color: dimgray;
+    font-size: large;
+    line-height: 1.3em;
+}
+
+/*applies to nav*/
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    z-index: 1;
+    width: 100%;
+    position: fixed;
+    top: 1em;
+    left: 0;
+    padding: 0;
+    margin: auto;
+}
+
+nav div {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    background-color: #424242;
+    --gap: 5px;
+    --radius: 30px;
+    gap: 5px;
+    border-radius: var(--radius);
+    box-shadow: rgba(60, 64, 67, 0.3) 0 1px 10px 1px;
+}
+
+nav a {
+    margin: 0.2em;
+    text-align: center;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    border: dashed 1px transparent;
+    border-radius: calc(var(--radius) - var(--gap));
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    border: dashed 1px lightgrey;
+}
+
+nav a.active {
+    background-color: rgba(0, 255, 190, 0.5);
+    color: mediumspringgreen;
+    border: dashed 1px transparent;
+    pointer-events: none;
+    /*    background-color: rgba(0, 122, 156, 0.5);*/
+    /*    color: #03d3fc;*/
+}
+
+nav a:not(.active) {
+    color: grey;
+}
+
+/*a:visited has to do with the color of visited links, usually purple*/
+
+a:visited {
+    color: inherit;
+}
+
+.active a:hover {
+    border: dashed transparent;
+}
+
+main {
+    margin: 150px auto 0;
+    max-width: 900px;
+}
+
+.narrow-container, .narrow-container-2 {
+    width: 80%;
+    margin: 2em auto;
+    border-radius: 2em;
+    flex-wrap: wrap;
+    padding: 2em;
+    background-color: whitesmoke;
+}
+
+.narrow-container-2 {
+    margin: 2em auto;
+}
+
+.wide-container, .wide-container2 {
+    width: 100%;
+    margin: 2em auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    border-radius: 2em;
+    background-color: whitesmoke;
+}
+
+.wide-container2 {
+    width: 80%;
+    padding: 2em    ;
+}
+
+.text-container, .text-container2 {
+    margin: auto;
+}
+
+.text-container2 {
+    width: 60%;
+    padding: 2em;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.img-container {
+    width: 250px;
+    margin: auto;
+    overflow: hidden;
+    padding: 1em;
+}
+
+.img-container img {
+    display: block;
+    width: 100%;
+    border-radius: 1em;
+    box-shadow: 0 1px 10px 1px rgba(50, 50, 50, 0.5);
+}
+
+.project-container {
+    width: 100%;
+    margin: 2em auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 2em;
+    background-color: whitesmoke;
+    padding: 2em 0;
+}
+
+.project-container2 {
+    width: 100%;
+    margin: 2em auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 2em;
+    flex-wrap: wrap-reverse;
+    background-color: whitesmoke;
+    padding: 2em 0;
+}
+
+.project-text-container {
+    width: 40%;
+    margin: auto;
+    padding: 1em;
+}
+
+.project-thumbnail {
+    width: 400px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 20px;
+    transition: ease-out 0.2s;
+    box-shadow: 0 1px 10px 1px rgba(100, 100, 100, 0.5);
+}
+
+.project-thumbnail img {
+    display: block;
+    width: 100%;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.project-thumbnail img:hover {
+    transform: scale(1.1);
+}
+
+.project-thumbnail:hover {
+    box-shadow: 0px 1px 10px 5px rgba(100, 100, 100, 0.6);
+}
+
+/*Line*/
+hr {
+    width: 90%;
+    border: 0.5px solid lightgrey;
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5em auto 1em;
+    padding: 1em;
+    background-color: whitesmoke;
+    border-radius: 2em;
+    gap: 1em 3em;
+    max-width: 900px;
+}
+
+footer p {
+    color: grey;
+}
+
+footer div {
+    margin: 0 2em;
+}
+
+.get-in-touch {
+    display: flex;
+    flex-direction: column;
+}
+
+.connect {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.connect a {
+    width: fit-content;
+    margin: auto 0;
+    padding: 0.7em;
+    border-radius: 50px;
+    border: 1px solid lightgrey;
+    transition: ease-out 0.2s;
+}
+
+footer h3 {
+    font-weight: unset;
+}
+
+footer a {
+    color: black;
+    text-decoration: none;
+}
+
+footer img {
+    width: 20px;
+    display: block;
+}
+
+.connect a:hover {
+    transform: scale(1.1);
+}
+
+/*ID*/
+#nasdaq {
+    width: 95%;
+}
+
+.contact-form {
+    width: 80%;
+    padding: 1em;
+    margin: auto;
+}
+
+form {
+    width: 50%;
+    margin: auto;
+    padding: 1em;
+}
+
+input[type=text], textarea {
+    width: 100%;
+    margin: 1em auto;
+    padding: 0.7em;
+    resize: vertical;
+    border-radius: 1em;
+    border: 1px solid lightgrey;
+}
+
+/*Choose what type of input to style*/
+input[type=submit] {
+    width: 30%;
+    padding: 0.5em;
+    text-align: center;
+    transition: ease-out 0.2s;
+    border: solid 1px dimgray;
+    border-radius: 1em;
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background-color: grey;
+}
+
+/*Change behavior and layout based on display width*/
+
+@media (max-width: 745px) {
+
+    .narrow-container {
+        width: 90%;
+    }
+
+    .text-container, .project-text-container {
+        width: 90%;
+    }
+
+    footer {
+        justify-content: space-evenly;
+    }
+
+    footer p {
+        display: none;
+    }
+
+    footer img:hover {
+        transform: none;
+    }
+
+}
+
+@media (max-width: 435px) {
+
+    main {
+        margin-top: 0;
+    }
+
+    nav {
+        position: static;
+        padding: 1em;
+        width: auto;
+    }
+
+    nav div {
+        flex-direction: column;
+        width: 80%;
+        max-width: none;
+        padding: 0.5em;
+    }
+
+    nav a {
+        white-space: wrap;
+    }
+
+    footer {
+        justify-content: center;
+    }
+
+    footer p {
+        display: none;
+    }
+
+}
+
+
