@@ -333,8 +333,7 @@ option:first-child:hover {
     cursor: inherit;
 }
 
-
-option::checkmark {
+option::checkmark{
     display: none;
 }
 
