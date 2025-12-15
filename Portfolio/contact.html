@@ -47,7 +47,23 @@
                 <label>Phone number</label>
                 <input type="text" name="phone" required>
                 <label for="subject">Subject</label>
-                <input type="" name="subject" placeholder="Subject" required>
+                <select name="Subject" required>
+                    <button>
+                        <selectedcontent></selectedcontent>
+                    </button>
+                    <option value="" disabled hidden selected>
+                        <span>Select subject</span>
+                    </option>
+                    <option value="1">
+                        <span>General Inquiry</span>
+                    </option>
+                    <option value="2">
+                        <span>Work</span>
+                    </option>
+                    <option value="3">
+                        <span>Other</span>
+                    </option>
+                </select>
                 <label>Message</label>
                 <textarea id="subject" name="subject" placeholder="Write a message" maxlength=100 required></textarea>
                 <input type="submit" value="Submit">
@@ -67,6 +83,5 @@
                                                                        alt="LinkedIn icon"></a>
         </div>
     </footer>
-
 </body>
 </html>

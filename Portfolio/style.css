@@ -14,10 +14,13 @@ body {
     font-family: "Helvetica Neue", sans-serif;
 }
 
-p, ul, a, label, input, textarea {
-    color: dimgray;
+p, ul, a, label, input, textarea, select {
     font-size: large;
     line-height: 1.3em;
+}
+
+p, ul, a, label, input, textarea {
+    color: dimgray;
 }
 
 /*applies to nav*/
@@ -274,7 +277,7 @@ form {
     padding: 1em 0;
 }
 
-input, textarea {
+input, textarea, select {
     display: block;
     box-sizing: border-box;
     width: 100%;
@@ -285,9 +288,59 @@ input, textarea {
     border: 1px solid lightgrey;
 }
 
-/*input[type="email"] {*/
-/*    margin-bottom: 2em;*/
-/*}*/
+select,
+::picker(select) {
+    appearance: base-select;
+    background-color: white;
+}
+
+::picker(select) {
+    border-radius: 2em;
+    padding: 1em;
+    border: 1px solid lightgrey;
+}
+
+select {
+    border-radius: 2em;
+    padding: 1em;
+    border: 1px solid lightgrey;
+}
+
+select:hover {
+    cursor: pointer;
+    transition: ease-out 0.2s;
+    background-color: whitesmoke;
+}
+
+button {
+}
+
+option {
+    padding: 0.5em;
+    border-radius: 1em;
+    border: 2px solid transparent;
+}
+
+option:hover {
+    /*border: 2px solid royalblue;*/
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+option:first-child:hover {
+    /*border: 2px solid transparent;*/
+    background-color: inherit;
+    cursor: inherit;
+}
+
+
+option::checkmark {
+    display: none;
+}
+
+.placeholder {
+
+}
 
 textarea {
     height: 100px;
@@ -302,25 +355,22 @@ input[type=submit] {
     padding: 0.5em 0;
     text-align: center;
     transition: ease-out 0.2s;
-    border: solid 1px lightgrey;
+    border: solid 2px lightgrey;
     border-radius: 1em;
+    background-color: whitesmoke;
 }
 
 input, textarea {
     color: black;
 }
 
-input::placeholder {
-    color: lightgrey;
-}
-
-textarea::placeholder {
+textarea::placeholder, input::placeholder {
     color: lightgrey;
 }
 
 input[type=submit]:hover {
     cursor: pointer;
-    background-color: lightgrey;
+    background-color: white;
 }
 
 .name {
