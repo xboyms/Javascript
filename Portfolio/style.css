@@ -57,14 +57,14 @@ nav a {
     display: block;
     padding: 10px;
     text-decoration: none;
-    border: dashed 2px transparent;
+    border: dashed 1px transparent;
     border-radius: calc(var(--radius) - var(--gap));
     white-space: nowrap;
     transition: 0.2s;
 }
 
 nav a:hover {
-    border: dashed 2px white;
+    border: dashed 1px white;
 }
 
 nav a.active {
@@ -270,13 +270,15 @@ footer img {
 
 .contact-form {
     width: 60%;
-    padding: 2em;
+    padding: 2em 0;
     margin: 2em auto;
     background-color: whitesmoke;
     border-radius: 2em;
 }
 
 form {
+    width: 90%;
+    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -296,30 +298,11 @@ input, textarea, select {
 select {
     border-radius: 1em;
     border: 1px solid lightgrey;
-    background-color: white;
 }
 
 select:hover {
     cursor: pointer;
     background-color: whitesmoke;
-}
-
-option {
-    padding: 0.5em;
-    border-radius: 1em;
-    border: 2px solid transparent;
-}
-
-option:hover {
-    /*border: 2px solid royalblue;*/
-    background-color: lightgrey;
-    cursor: pointer;
-}
-
-option:first-child:hover {
-    /*border: 2px solid transparent;*/
-    background-color: inherit;
-    cursor: inherit;
 }
 
 textarea {
@@ -333,9 +316,13 @@ textarea {
     margin: auto 0;
 }
 
+label {
+    width: fit-content;
+}
+
 /*Choose what type of input to style*/
 input[type=submit] {
-    width: 25%;
+    width: 30%;
     padding: 0.5em 0;
     text-align: center;
     transition: ease-out 0.2s;
@@ -344,7 +331,7 @@ input[type=submit] {
     background-color: whitesmoke;
 }
 
-#submit{
+#submit {
     background-color: rgb(0, 110, 255);
     color: white;
 }
@@ -353,7 +340,7 @@ input[type=submit] {
     background-color: rgb(0, 130, 255);;
 }
 
-#clear{
+#clear {
     color: gray;
 }
 
@@ -374,10 +361,13 @@ input[type=submit]:hover {
     background-color: white;
 }
 
-.name {
+.names {
     display: flex;
     gap: 1em;
-    justify-content: start;
+}
+
+.firstname, .lastname {
+    width: 100%;
 }
 
 /*Change behavior and layout based on display width*/
@@ -412,9 +402,10 @@ input[type=submit]:hover {
         padding: 1em;
     }
 
-    input[type=submit] {
-        width: 40%;
+    .contact-form{
+        width: 75%;
     }
+
 }
 
 @media (max-width: 480px) {
@@ -439,6 +430,22 @@ input[type=submit]:hover {
     main {
         margin-top: 0;
     }
+
+    .contact-form {
+        width: 90%;
+        padding: 1em;
+    }
+
+    #submit-buttons {
+        background: red;
+        justify-content: center;
+        width: 100%;
+    }
+
+    input[type=submit] {
+        width: 100%;
+    }
+
 }
 
 @media (max-width: 435px) {
@@ -455,25 +462,6 @@ input[type=submit]:hover {
 
     footer p {
         display: none;
-    }
-
-    .contact-form {
-        width: 100%;
-        padding: 1em 0;
-    }
-
-    .contact-form h1 {
-        display: block;
-        padding: 0.5em;
-    }
-
-    input[type=submit] {
-        width: 100%;
-    }
-
-    form {
-        width: 80%;
-        padding: 1em 0;
     }
 
 }

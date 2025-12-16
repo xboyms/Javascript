@@ -34,12 +34,17 @@
 
 <main>
     <div class="contact-form">
-        <h1>Contact Form 💬</h1>
         <form action="" method="post">
-            <label>Name</label>
-            <div class="name">
+            <h1>Contact Form 💬</h1>
+            <div class="names">
+            <div class="firstname">
+                <label for="firstname">First name</label>
                 <input type="text" id="firstname" name="firstname" placeholder="First name" maxlength="50" required>
+            </div>
+            <div class="lastname">
+                <label for="lastname">Last name</label>
                 <input type="text" id="lastname" name="lastname" placeholder="Last name" maxlength="50" required>
+            </div>
             </div>
             <label for="email">Email</label>
             <input id="email" type="email" name="email" placeholder="Email" required>
