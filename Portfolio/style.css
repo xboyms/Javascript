@@ -14,7 +14,7 @@ body {
     font-family: "Helvetica Neue", sans-serif;
 }
 
-p, ul, a, label, input, textarea, select {
+p, ul, a, label, input, textarea, select, span {
     font-size: large;
     line-height: 1.3em;
 }
@@ -268,7 +268,7 @@ footer img {
     transform: scale(1.1);
 }
 
-.contact-form {
+.form {
     width: 60%;
     padding: 2em 0;
     margin: 2em auto;
@@ -284,11 +284,22 @@ form {
     justify-content: start;
 }
 
+.names span {
+    padding: 0 0 1em 0;
+    display: block;
+}
+
+form span, .firstname span, .lastname span {
+    display: none;
+    color: red;
+    padding: 0 0 1em 0;
+}
+
 input, textarea, select {
     display: block;
     box-sizing: border-box;
     width: 100%;
-    margin: 0.5em 0 1em;
+    margin: 0.5em 0 0.5em;
     padding: 14px;
     resize: none;
     border-radius: 1em;
@@ -322,13 +333,21 @@ label {
 
 /*Choose what type of input to style*/
 input[type=submit] {
-    width: 30%;
+    width: 150px;
     padding: 0.5em 0;
     text-align: center;
     transition: ease-out 0.2s;
-    border: solid 1px lightgrey;
     border-radius: 1em;
     background-color: whitesmoke;
+}
+
+.names {
+    display: flex;
+    gap: 1em;
+}
+
+.firstname, .lastname {
+    width: 100%;
 }
 
 #submit {
@@ -359,15 +378,6 @@ textarea::placeholder, input::placeholder {
 input[type=submit]:hover {
     cursor: pointer;
     background-color: white;
-}
-
-.names {
-    display: flex;
-    gap: 1em;
-}
-
-.firstname, .lastname {
-    width: 100%;
 }
 
 /*Change behavior and layout based on display width*/
@@ -402,10 +412,9 @@ input[type=submit]:hover {
         padding: 1em;
     }
 
-    .contact-form{
+    .form{
         width: 75%;
     }
-
 }
 
 @media (max-width: 480px) {
@@ -431,18 +440,13 @@ input[type=submit]:hover {
         margin-top: 0;
     }
 
-    .contact-form {
+    .form {
         width: 90%;
         padding: 1em;
     }
 
     #submit-buttons {
-        background: red;
         justify-content: center;
-        width: 100%;
-    }
-
-    input[type=submit] {
         width: 100%;
     }
 
