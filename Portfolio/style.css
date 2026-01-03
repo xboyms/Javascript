@@ -290,6 +290,7 @@ form {
 }
 
 .invalid , #firstnameInvalid, #lastnameInvalid {
+    font-size: small;
     display: none;
     color: red;
     padding: 0 0 1em 0;
@@ -304,10 +305,6 @@ input, textarea, select {
     resize: none;
     border-radius: 1em;
     border: 1px solid lightgrey;
-}
-
-input:focus{
-    /*outline: 2px solid red;*/
 }
 
 select {
