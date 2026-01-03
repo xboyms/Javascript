@@ -289,7 +289,7 @@ form {
     display: block;
 }
 
-form span, .firstname span, .lastname span {
+.invalid , #firstnameInvalid, #lastnameInvalid {
     display: none;
     color: red;
     padding: 0 0 1em 0;
@@ -304,6 +304,10 @@ input, textarea, select {
     resize: none;
     border-radius: 1em;
     border: 1px solid lightgrey;
+}
+
+input:focus{
+    /*outline: 2px solid red;*/
 }
 
 select {
@@ -321,7 +325,7 @@ textarea {
     font-family: "Helvetica Neue", sans-serif;
 }
 
-#submit-buttons {
+#buttons {
     display: flex;
     gap: 1em;
     margin: auto 0;

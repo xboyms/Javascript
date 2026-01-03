@@ -40,22 +40,22 @@
             <div class="names">
                 <div class="firstname">
                     <label for="firstname">First name</label>
-                    <input type="text" id="firstname" name="firstname" placeholder="First name" maxlength="50">
-                    <span>Invalid input</span>
+                    <input type="text" id="firstname" name="firstname" placeholder="First name" maxlength="20">
+                    <span id="firstnameInvalid">Invalid input</span>
                 </div>
 
                 <div class="lastname">
                     <label for="lastname">Last name</label>
-                    <input type="text" id="lastname" name="lastname" placeholder="Last name" maxlength="50">
-                    <span>Invalid output</span>
+                    <input type="text" id="lastname" name="lastname" placeholder="Last name" maxlength="20">
+                    <span id="lastnameInvalid">Invalid iutput</span>
                 </div>
             </div>
             <label for="email">Email</label>
             <input id="email" type="email" name="email" placeholder="Email">
-            <span>Invalid input</span>
+            <span class="invalid">Invalid input</span>
             <label for="phone">Phone number</label>
             <input id="phone" type="tel" name="phone">
-            <span>Invalid input</span>
+            <span class="invalid">Invalid input</span>
             <label for="subject">Subject</label>
             <select id="subject" name="Subject">
                 <option value="select subject" disabled hidden selected>
@@ -71,11 +71,11 @@
                     Other
                 </option>
             </select>
-            <span>Select subject</span>
+            <span class="invalid">Select subject</span>
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Write a message" maxlength="100"></textarea>
-            <span>Message missing</span>
-            <div id="submit-buttons">
+            <span class="invalid">Message missing</span>
+            <div id="buttons">
                 <input id="submit" type="submit" value="Submit">
                 <input id="clear" type="submit" value="Clear">
             </div>
