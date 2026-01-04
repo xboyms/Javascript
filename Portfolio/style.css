@@ -289,11 +289,12 @@ form {
     display: block;
 }
 
-.invalid , #firstnameInvalid, #lastnameInvalid {
+.invalid , #firstnameInvalid, #lastnameInvalid, #emailInvalid {
     font-size: small;
-    display: none;
+    opacity: 0;
     color: red;
-    padding: 0 0 1em 0;
+    padding: 0 0 5px 0;
+    transition: ease-in-out 0.3s;
 }
 
 input, textarea, select {
@@ -305,6 +306,7 @@ input, textarea, select {
     resize: none;
     border-radius: 1em;
     border: 1px solid lightgrey;
+    transition: ease-in-out 0.3s;
 }
 
 select {
@@ -333,13 +335,14 @@ label {
 }
 
 /*Choose what type of input to style*/
-input[type=submit] {
+input[type=submit], input[type=button] {
     width: 150px;
     padding: 0.5em 0;
     text-align: center;
-    transition: ease-out 0.2s;
     border-radius: 1em;
     background-color: whitesmoke;
+    transition: ease-in-out 0.2s;
+    cursor: pointer;
 }
 
 .names {

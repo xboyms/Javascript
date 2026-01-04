@@ -10,41 +10,42 @@ const reset = document.getElementById("clear");
 const firstnameInvalid = document.getElementById("firstnameInvalid");
 const lastnameInvalid = document.getElementById("lastnameInvalid");
 
-/*This function checks for 2 thing: if the input field is left empty or only has 1 character
-then it shows an error message */
-// function validateEmpty(inputField, errorMessage) {
-//     if (inputField.value.length === 0) {
-//         errorMessage.style.display = 'block';
-//         inputField.style.borderColor = 'red';
-//     } else {
-//         errorMessage.style.display = 'none';
-//         inputField.style.borderColor = 'green';
-//     }
-// }
-// //
-// // //Calling the function above using blur event
-// // // Replacing the placeholder variables to target the right input fields / variables
-// firstname.addEventListener("blur", () => validateEmpty(firstname, firstnameInvalid));
-// lastname.addEventListener("blur", () => validateEmpty(lastname, lastnameInvalid));
-
+//Checks for input for name fields
 function validateInput(inputField, errorMessage) {
 
-    const onlyLetters = /^[a-zA-Z\s]*$/.test(inputField.value);
-    const isEmpty = inputField.value.length  === 0;
+    //Checks for letters between a-z
+    const onlyLetters = /^[a-zA-Z]*$/.test(inputField.value);
+    const isEmpty = inputField.value.length === 0;
 
     if (!onlyLetters || isEmpty) {
-        errorMessage.style.display = 'block';
+        errorMessage.style.opacity = '100%';
         inputField.style.borderColor = 'red';
     } else {
-        errorMessage.style.display = 'none';
+        errorMessage.style.opacity = '0';
         inputField.style.borderColor = 'green';
     }
 }
 
-
+//Calls function and chooses relevant parameters
 firstname.addEventListener("input", () => validateInput(firstname, firstnameInvalid));
+//Blur checks if user tries to tab through fields or select & leave empty
 firstname.addEventListener("blur", () => validateInput(firstname, firstnameInvalid));
 
 lastname.addEventListener("input", () => validateInput(lastname, lastnameInvalid));
 lastname.addEventListener("blur", () => validateInput(lastname, lastnameInvalid));
 
+function clearForm() {
+    const allFields = [firstname, lastname];
+    const allErrors = [firstnameInvalid, lastnameInvalid];
+
+    allFields.forEach(inputField => {
+        inputField.value = '';
+        inputField.style.borderColor = '';
+    });
+
+    allErrors.forEach(errorMessage => {
+        errorMessage.style.opacity = '0';
+    });
+}
+
+reset.addEventListener("click", () => clearForm());
