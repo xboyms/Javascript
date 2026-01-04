@@ -270,7 +270,7 @@ footer img {
 
 .form {
     width: 60%;
-    padding: 2em 0;
+    padding: 1em 0;
     margin: 2em auto;
     background-color: whitesmoke;
     border-radius: 2em;
@@ -289,7 +289,7 @@ form {
     display: block;
 }
 
-.invalid , #firstnameInvalid, #lastnameInvalid, #emailInvalid {
+.invalid , #firstnameInvalid, #lastnameInvalid, #emailInvalid, #messageCounter {
     font-size: small;
     opacity: 0;
     color: red;
@@ -301,7 +301,7 @@ input, textarea, select {
     display: block;
     box-sizing: border-box;
     width: 100%;
-    margin: 0.5em 0 0.5em;
+    margin: 5px 0;
     padding: 14px;
     resize: none;
     border-radius: 1em;
