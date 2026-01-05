@@ -34,30 +34,33 @@
 </nav>
 
 <main>
+    <div id="thanks">
+        <p id="thanksP">Thank you <span id="userFirstName"></span>! Your message has been sent.</p>
+    </div>
     <div class="form">
         <form id="contact-form" action="" method="post">
             <h1>Contact Form 💬</h1>
             <div class="names">
                 <div class="firstname">
                     <label for="firstname">First name</label>
-                    <input type="text" id="firstname" name="firstname" placeholder="First name" maxlength="20" required>
+                    <input type="text" id="firstname" name="firstname" placeholder="First name" maxlength="20">
                     <span id="firstnameInvalid">Invalid input</span>
                 </div>
 
                 <div class="lastname">
                     <label for="lastname">Last name</label>
-                    <input type="text" id="lastname" name="lastname" placeholder="Last name" maxlength="20" required>
+                    <input type="text" id="lastname" name="lastname" placeholder="Last name" maxlength="20">
                     <span id="lastnameInvalid">Invalid input</span>
                 </div>
             </div>
             <label for="email">Email</label>
-            <input id="email" type="email" name="email" placeholder="Email" required>
+            <input id="email" type="email" name="email" placeholder="Email">
             <span id="emailInvalid">Invalid input</span>
 <!--            <label for="phone">Phone number</label>-->
 <!--            <input id="phone" type="tel" name="phone">-->
 <!--            <span class="invalid">Invalid input</span>-->
             <label for="subject">Subject</label>
-            <select id="subject" name="Subject" required>
+            <select id="subject" name="Subject">
                 <option value="select subject" disabled hidden selected>
                     Select subject
                 </option>
@@ -73,13 +76,14 @@
             </select>
             <span id="subjectErrorMsg">Select subject</span>
             <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Write a message" maxlength="100" required></textarea>
+            <textarea id="message" name="message" placeholder="Write a message" maxlength="100"></textarea>
             <span id="messageCounter">Counter <span id="counter">X</span>/20</span>
             <div id="buttons">
                 <input id="submit" type="submit" value="Submit">
                 <input id="clear" type="button" value="Clear">
             </div>
         </form>
+
     </div>
 </main>
 

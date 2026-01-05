@@ -289,6 +289,12 @@ form {
     display: block;
 }
 
+#thanks {
+    display: none;
+    background-color: red;
+    margin: auto;
+}
+
 #firstnameInvalid, #lastnameInvalid, #emailInvalid, #messageCounter, #counter, #subjectErrorMsg {
     font-size: small;
     opacity: 0;

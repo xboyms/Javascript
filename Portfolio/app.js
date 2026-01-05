@@ -154,30 +154,41 @@ function showError() {
 subject.addEventListener("blur", showError);
 subject.addEventListener("change", showError);
 
+submit.addEventListener("click", (event) => {
+    event.preventDefault();
+    //Checks if form can be submitted
+    if (firstname.value && lastname.value && email.value && subject.style.borderColor === 'green' && message.value.length >= 20) {
+        alert(`Thank you ${firstname.value}! Your message has been sent.`);
+        clearForm(); // Clear the form after
+    } else {
+        alert("Please fill in all fields accordingly!");
+    }
+});
+
 //Adds functionality to clear button
-function clearForm() {
-    //Array for all input fields and error messages
-    const allFields = [firstname, lastname, email, message, subject];
-    const allErrors = [firstnameInvalid, lastnameInvalid, emailInvalid, messageCounter, subjectErrorMsg];
+    function clearForm() {
+        //Array for all input fields and error messages
+        const allFields = [firstname, lastname, email, message, subject];
+        const allErrors = [firstnameInvalid, lastnameInvalid, emailInvalid, messageCounter, subjectErrorMsg];
 
-    //forEach loops and applies the following for each element between
-    allFields.forEach(inputField => {
+        //forEach loops and applies the following for each element between
+        allFields.forEach(inputField => {
 
-        if (inputField === subject) {
-            inputField.value = "select subject";
-        } else {
-            inputField.value = '';
-        }
-        inputField.style.borderColor = '';
-    });
+            if (inputField === subject) {
+                inputField.value = "select subject";
+            } else {
+                inputField.value = '';
+            }
+            inputField.style.borderColor = '';
+        });
 
-    allErrors.forEach(errorMessage => {
-        errorMessage.style.opacity = '0';
-    });
+        allErrors.forEach(errorMessage => {
+            errorMessage.style.opacity = '0';
+        });
 
-    // updateButtonState();
-}
+        // updateButtonState();
+    }
 
 //Calls function on click
-reset.addEventListener("click", () => clearForm());
+    reset.addEventListener("click", () => clearForm());
 
