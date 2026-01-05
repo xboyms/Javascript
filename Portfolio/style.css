@@ -289,7 +289,7 @@ form {
     display: block;
 }
 
-.invalid , #firstnameInvalid, #lastnameInvalid, #emailInvalid, #messageCounter, #counter {
+#firstnameInvalid, #lastnameInvalid, #emailInvalid, #messageCounter, #counter, #subjectErrorMsg {
     font-size: small;
     opacity: 0;
     color: red;

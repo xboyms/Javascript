@@ -11,6 +11,7 @@ const lastnameInvalid = document.getElementById("lastnameInvalid");
 const emailInvalid = document.getElementById("emailInvalid");
 const messageCounter = document.getElementById("messageCounter");
 const counter = document.getElementById("counter");
+const subjectErrorMsg = document.getElementById("subjectErrorMsg");
 
 //Checks for input for name fields
 function validateInput(inputField, errorMessage) {
@@ -92,58 +93,81 @@ function validateMessage() {
 message.addEventListener("input", validateMessage);
 message.addEventListener("blur", validateMessage);
 
-function updateButtonState() {
-//Variable for all empty fields
-    const allEmpty = firstname.value.length === 0 &&
-        lastname.value.length === 0 &&
-        email.value.length === 0 &&
-        message.value.length === 0;
+// function updateButtonState() {
+// //Variable for all empty fields
+//     const allEmpty = firstname.value.length === 0 &&
+//         lastname.value.length === 0 &&
+//         email.value.length === 0 &&
+//         message.value.length === 0 &&
+//         subject.value === "select subject";
+//
+//     if (allEmpty) {
+//         reset.disabled = true;
+//         reset.style.pointerEvents = 'none';
+//         reset.style.opacity = '0.5';
+//
+//         submit.disabled = true;
+//         submit.style.pointerEvents = 'none';
+//         submit.style.opacity = '0.5';
+//     } else if (firstname.style.borderColor === 'green' &&
+//         lastname.style.borderColor === 'green' &&
+//         email.style.borderColor === 'green' &&
+//         messageCounter.style.color === 'green' &&
+//         subject.style.borderColor === 'green'
+//     ) {
+//         submit.disabled = false;
+//         submit.style.pointerEvents = 'auto';
+//         submit.style.opacity = '1';
+//     } else {
+//         reset.disabled = false;
+//         reset.style.pointerEvents = 'auto';
+//         reset.style.opacity = '1';
+//
+//         submit.disabled = true;
+//         submit.style.pointerEvents = 'none';
+//         submit.style.opacity = '0.5';
+//     }
+// }
+//
+// //Checks input of following fields and runs function
+// firstname.addEventListener("input", updateButtonState);
+// lastname.addEventListener("input", updateButtonState);
+// email.addEventListener("input", updateButtonState);
+// message.addEventListener("input", updateButtonState);
+// subject.addEventListener("change", updateButtonState);
+//
+// //Calls function to update state of both submit and reset buttons
+// updateButtonState();
 
-    if (allEmpty) {
-        reset.disabled = true;
-        reset.style.pointerEvents = 'none';
-        reset.style.opacity = '0.5';
+function showError() {
 
-        submit.disabled = true;
-        submit.style.pointerEvents = 'none';
-        submit.style.opacity = '0.5';
-    } else if (firstname.style.borderColor === 'green' &&
-        lastname.style.borderColor === 'green' &&
-        email.style.borderColor === 'green' &&
-        messageCounter.style.color === 'green') {
-
-        submit.disabled = false;
-        submit.style.pointerEvents = 'auto';
-        submit.style.opacity = '1';
+    if (subject.value === "select subject") {
+        subject.style.borderColor = 'red';
+        subjectErrorMsg.style.opacity = '1';
     } else {
-        reset.disabled = false;
-        reset.style.pointerEvents = 'auto';
-        reset.style.opacity = '1';
-
-        submit.disabled = true;
-        submit.style.pointerEvents = 'none';
-        submit.style.opacity = '0.5';
+        // If they chose something else, turn it green
+        subject.style.borderColor = 'green';
+        subjectErrorMsg.style.opacity = '0';
     }
 }
 
-//Checks input of following fields and runs function
-firstname.addEventListener("input", updateButtonState);
-lastname.addEventListener("input", updateButtonState);
-email.addEventListener("input", updateButtonState);
-message.addEventListener("input", updateButtonState);
-
-//Calls function to update state of both submit and reset buttons
-updateButtonState();
+subject.addEventListener("blur", showError);
+subject.addEventListener("change", showError);
 
 //Adds functionality to clear button
 function clearForm() {
     //Array for all input fields and error messages
-    const allFields = [firstname, lastname, email, message];
-    const allErrors = [firstnameInvalid, lastnameInvalid, emailInvalid, messageCounter];
+    const allFields = [firstname, lastname, email, message, subject];
+    const allErrors = [firstnameInvalid, lastnameInvalid, emailInvalid, messageCounter, subjectErrorMsg];
 
     //forEach loops and applies the following for each element between
     allFields.forEach(inputField => {
-        inputField.value = '';
+
+        if (inputField === subject) {
+            inputField.value = "select subject";
+        } else {
+            inputField.value = '';
+        }
         inputField.style.borderColor = '';
     });
 
@@ -151,7 +175,7 @@ function clearForm() {
         errorMessage.style.opacity = '0';
     });
 
-    updateButtonState();
+    // updateButtonState();
 }
 
 //Calls function on click
