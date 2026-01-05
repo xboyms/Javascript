@@ -10,6 +10,7 @@ const firstnameInvalid = document.getElementById("firstnameInvalid");
 const lastnameInvalid = document.getElementById("lastnameInvalid");
 const emailInvalid = document.getElementById("emailInvalid");
 const messageCounter = document.getElementById("messageCounter");
+const counter = document.getElementById("counter");
 
 //Checks for input for name fields
 function validateInput(inputField, errorMessage) {
@@ -23,7 +24,7 @@ function validateInput(inputField, errorMessage) {
         errorMessage.style.opacity = '100%';
         inputField.style.borderColor = 'red';
     }
-    //If the above condition is not met, fields turn green with error messages
+    //If the above condition is not met, fields turn green without error messages
     else {
         errorMessage.style.opacity = '0';
         inputField.style.borderColor = 'green';
@@ -43,7 +44,9 @@ function validateEmail(inputField, errorMessage) {
     //Define what empty field variable
     const isEmpty = email.value.length === 0;
     //Define valid email variable and check for a match
-    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputField.value);
+    const validEmail = /^[^\s@]+@[^\s@]+\.[a-zA-Z]+$/.test(inputField.value);
+    //Prevents user from typing space
+    email.value = email.value.replace(/\s/g, "");
 
     /*If either input field is left empty or email input is not valid
     border color becomes red and error message shows*/
@@ -68,6 +71,27 @@ email.addEventListener("input", () => validateEmail(email, emailInvalid));
 2. All fields are filled
 3. Else turn off submit and turn on reset
 */
+
+function validateMessage() {
+    messageCounter.style.opacity = '1';
+    counter.style.opacity = '1';
+
+    const currentLength = Math.min(20, message.value.length);
+
+    counter.textContent = currentLength;
+
+    if (message.value.length >= 20) {
+        messageCounter.style.color = 'green';
+        counter.style.color = 'green';
+    } else {
+        messageCounter.style.color = 'red';
+        counter.style.color = 'red';
+    }
+}
+
+message.addEventListener("input", validateMessage);
+message.addEventListener("blur", validateMessage);
+
 function updateButtonState() {
 //Variable for all empty fields
     const allEmpty = firstname.value.length === 0 &&
@@ -83,15 +107,15 @@ function updateButtonState() {
         submit.disabled = true;
         submit.style.pointerEvents = 'none';
         submit.style.opacity = '0.5';
-    }
+    } else if (firstname.style.borderColor === 'green' &&
+        lastname.style.borderColor === 'green' &&
+        email.style.borderColor === 'green' &&
+        messageCounter.style.color === 'green') {
 
-    else if (firstnameInvalid.style.opacity === '0' && lastnameInvalid.style.opacity === '0' && emailInvalid.style.opacity === '0') {
         submit.disabled = false;
         submit.style.pointerEvents = 'auto';
         submit.style.opacity = '1';
-    }
-
-        else {
+    } else {
         reset.disabled = false;
         reset.style.pointerEvents = 'auto';
         reset.style.opacity = '1';
@@ -101,6 +125,7 @@ function updateButtonState() {
         submit.style.opacity = '0.5';
     }
 }
+
 //Checks input of following fields and runs function
 firstname.addEventListener("input", updateButtonState);
 lastname.addEventListener("input", updateButtonState);
@@ -113,8 +138,8 @@ updateButtonState();
 //Adds functionality to clear button
 function clearForm() {
     //Array for all input fields and error messages
-    const allFields = [firstname, lastname, email];
-    const allErrors = [firstnameInvalid, lastnameInvalid, emailInvalid];
+    const allFields = [firstname, lastname, email, message];
+    const allErrors = [firstnameInvalid, lastnameInvalid, emailInvalid, messageCounter];
 
     //forEach loops and applies the following for each element between
     allFields.forEach(inputField => {
