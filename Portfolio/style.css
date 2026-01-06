@@ -290,9 +290,12 @@ form {
 }
 
 #thanks {
-    display: none;
-    background-color: red;
     margin: auto;
+    display: none;
+}
+
+#thanks p{
+    text-align: center;
 }
 
 #firstnameInvalid, #lastnameInvalid, #emailInvalid, #messageCounter, #counter, #subjectErrorMsg {

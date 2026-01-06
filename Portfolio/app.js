@@ -12,7 +12,8 @@ const emailInvalid = document.getElementById("emailInvalid");
 const messageCounter = document.getElementById("messageCounter");
 const counter = document.getElementById("counter");
 const subjectErrorMsg = document.getElementById("subjectErrorMsg");
-
+const successMsg = document.getElementById("thanks");
+const userName=document.getElementById("userFirstName");
 //Checks for input for name fields
 function validateInput(inputField, errorMessage) {
 
@@ -51,6 +52,7 @@ function validateEmail(inputField, errorMessage) {
 
     /*If either input field is left empty or email input is not valid
     border color becomes red and error message shows*/
+
     if (isEmpty || !validEmail) {
         errorMessage.style.opacity = '100%';
         inputField.style.borderColor = 'red';
@@ -77,9 +79,7 @@ function validateMessage() {
     messageCounter.style.opacity = '1';
     counter.style.opacity = '1';
 
-    const currentLength = Math.min(20, message.value.length);
-
-    counter.textContent = currentLength;
+    counter.textContent = message.value.length;
 
     if (message.value.length >= 20) {
         messageCounter.style.color = 'green';
@@ -157,12 +157,17 @@ subject.addEventListener("change", showError);
 submit.addEventListener("click", (event) => {
     event.preventDefault();
     //Checks if form can be submitted
+    userName.textContent = firstname.value;
     if (firstname.value && lastname.value && email.value && subject.style.borderColor === 'green' && message.value.length >= 20) {
-        alert(`Thank you ${firstname.value}! Your message has been sent.`);
+        successMsg.style.display = 'block';
+        setTimeout(() => {
+            successMsg.style.display = 'none';
+        }, 3000);
         clearForm(); // Clear the form after
     } else {
         alert("Please fill in all fields accordingly!");
     }
+
 });
 
 //Adds functionality to clear button
