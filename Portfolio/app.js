@@ -21,8 +21,10 @@ function validateInput(inputField, errorMessage) {
     const onlyLetters = /^[a-zA-Z]*$/.test(inputField.value);
     const isEmpty = inputField.value.length === 0;
 
-    //Checks if input field has special characters or spaces
-    if (!onlyLetters || isEmpty) {
+    let nameIsValid = onlyLetters && !isEmpty;
+
+    // Checks if input field has special characters or spaces
+    if (!nameIsValid) {
         errorMessage.style.opacity = '100%';
         inputField.style.borderColor = 'red';
     }
@@ -31,6 +33,7 @@ function validateInput(inputField, errorMessage) {
         errorMessage.style.opacity = '0';
         inputField.style.borderColor = 'green';
     }
+    return nameIsValid;
 }
 
 //Calls function and chooses relevant parameters
@@ -90,8 +93,8 @@ function validateMessage() {
     }
 }
 
-message.addEventListener("input", validateMessage);
 message.addEventListener("blur", validateMessage);
+message.addEventListener("input", validateMessage);
 
 // function updateButtonState() {
 // //Variable for all empty fields
@@ -141,7 +144,8 @@ message.addEventListener("blur", validateMessage);
 
 function showError() {
 
-    if (subject.value === "select subject") {
+    const defaultSubject = subject.value;
+    if (defaultSubject === "select subject") {
         subject.style.borderColor = 'red';
         subjectErrorMsg.style.opacity = '1';
     } else {
@@ -150,6 +154,7 @@ function showError() {
         subjectErrorMsg.style.opacity = '0';
     }
 }
+
 
 subject.addEventListener("blur", showError);
 subject.addEventListener("change", showError);
@@ -162,7 +167,7 @@ submit.addEventListener("click", (event) => {
         successMsg.style.display = 'block';
         setTimeout(() => {
             successMsg.style.display = 'none';
-        }, 3000);
+        }, 5000);
         clearForm(); // Clear the form after
     } else {
         alert("Please fill in all fields accordingly!");
