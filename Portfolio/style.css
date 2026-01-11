@@ -24,6 +24,9 @@ p, ul, a, label, input, textarea {
 }
 
 /*applies to nav*/
+h1 {
+    color: black;
+}
 
 nav {
     display: flex;
@@ -127,6 +130,32 @@ main {
     padding: 2em;
 }
 
+.mainGridContainer {
+    width: 100%;
+    margin: 2em auto;
+    border-radius: 2em;
+    background-color: whitesmoke;
+    padding: 2em 0;
+}
+
+.gridTextContainer {
+    padding: 0 2em;
+}
+
+.galleryContainer {
+    background-color: yellow;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.item {
+    background-color: red;
+    width: 100%;
+    height: 200px;
+    border: black solid 1px;
+}
+
+
 h1 {
     font-size: 2rem;
     margin-top: 0;
@@ -209,6 +238,10 @@ h1 {
 hr {
     width: 90%;
     border: 1px solid lightgrey;
+}
+
+a {
+    text-decoration: none;
 }
 
 footer {
@@ -294,7 +327,7 @@ form {
     display: none;
 }
 
-#thanks p{
+#thanks p {
     text-align: center;
 }
 
@@ -425,7 +458,7 @@ input[type=submit]:hover {
         padding: 1em;
     }
 
-    .form{
+    .form {
         width: 75%;
     }
 }

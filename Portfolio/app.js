@@ -155,7 +155,6 @@ function showError() {
     }
 }
 
-
 subject.addEventListener("blur", showError);
 subject.addEventListener("change", showError);
 
@@ -172,7 +171,6 @@ submit.addEventListener("click", (event) => {
     } else {
         alert("Please fill in all fields accordingly!");
     }
-
 });
 
 //Adds functionality to clear button
