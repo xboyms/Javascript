@@ -139,22 +139,31 @@ main {
 }
 
 .gridTextContainer {
-    padding: 0 2em;
+    padding: 1em;
+    width: 80%;
+    margin: auto;
 }
 
 .galleryContainer {
-    background-color: yellow;
     display: grid;
+    /*fr means fraction of available unit and it means */
     grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.5em;
+    align-items: start;
+    padding: 0.5em;
 }
 
 .item {
     background-color: red;
     width: 100%;
-    height: 200px;
-    border: black solid 1px;
+    border-radius: 10px;
 }
 
+.item img {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
 
 h1 {
     font-size: 2rem;
@@ -461,6 +470,17 @@ input[type=submit]:hover {
     .form {
         width: 75%;
     }
+
+    .galleryContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .item:last-child {
+        /*This stretches the last cell to cover the whole row*/
+        grid-column: 1/-1;
+        margin: auto;
+        width: 50%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -496,24 +516,32 @@ input[type=submit]:hover {
         width: 100%;
     }
 
-}
+    .galleryContainer {
+        grid-template-columns: repeat(1, 1fr);
 
-@media (max-width: 435px) {
+        .item:last-child {
+            margin: auto;
+            width: 100%;
+        }
 
-    nav {
-        position: static;
-        padding: 1em;
-        width: auto;
     }
 
-    footer {
-        justify-content: center;
-    }
+    @media (max-width: 435px) {
 
-    footer p {
-        display: none;
-    }
+        nav {
+            position: static;
+            padding: 1em;
+            width: auto;
+        }
 
+        footer {
+            justify-content: center;
+        }
+
+        footer p {
+            display: none;
+        }
+    }
 }
 
 
