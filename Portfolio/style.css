@@ -154,7 +154,6 @@ main {
 }
 
 .item {
-    background-color: red;
     width: 100%;
     border-radius: 10px;
 }
@@ -163,6 +162,18 @@ main {
     display: block;
     width: 100%;
     border-radius: 10px;
+    transition: ease-in-out 0.3s;
+    border: solid 2px transparent;
+    filter: brightness(0.5);
+    position: relative;
+}
+
+.item img:hover {
+    transform: scale(1.05);
+    border: solid 2px white;
+    filter: brightness(1);
+    /*99 is a safety margin to ensure the image is brought to the very front on hover*/
+    z-index: 99;
 }
 
 h1 {
